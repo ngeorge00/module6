@@ -1,0 +1,117 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%; 
+    grid-gap: 20px;
+    grid-template-areas: 
+        "header header header"
+        "left middle right"
+        "footer footer footer"; 
+}
+
+
+.header {
+    text-align: center;
+    grid-column: 1 / span 3;
+}
+
+
+.column {
+    background-color: lightgray; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.column.side {
+    background-color: #f0f0f0;
+}
+
+
+
+.column.middle {
+    background-color: #e0e0e0;
+}
+
+.column.side img {
+    width: 100%;       
+    height: auto;      
+    object-fit: cover; 
+}
+
+
+.bottom-nav {
+    grid-column: 1 / span 3; /* Make nav span all columns */
+    background-color: #333;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.bottom-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+}
+
+.bottom-nav ul li {
+    margin: 0 15px; 
+}
+
+.bottom-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.bottom-nav ul li a:hover {
+    color: #ff6347; 
+}
+
+/* Responsive Layout - Stack columns when screen width is below 600px */
+@media screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr; 
+        grid-template-areas: 
+            "header"
+            "main"
+            "aside"
+            "footer"; 
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .bottom-nav ul {
+        flex-direction: column; 
+    }
+
+    .bottom-nav ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Tablet Breakpoint (below 900px) */
+@media only screen and (max-width: 900px) {
+    body {
+        background: grey;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr 2fr 1fr; 
+        grid-template-areas: 
+            "header header header"
+            "left middle right"
+            "footer footer footer";
+    }
+
+    .column.side {
+        background-color: #f0f0f0;
+    }
+
+    .column.middle {
+        background-color: #e0e0e0;
+    }
+}
